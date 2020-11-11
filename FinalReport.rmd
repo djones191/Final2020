@@ -40,6 +40,49 @@ barchartGC(~infected + treatment,data=DataF, type="percent",
 main="gal")
 ```
 
+```{r}
+DataG = filter(FinalData,sex=="guy")
+barchartGC(~infected + treatment,data=DataG)
+barchartGC(~infected + treatment,data=DataG, type="percent",
+main="guy")
+```
+
+```{r}
+DataLGBTQ = filter(FinalData,LGBTQ=="gay")
+barchartGC(~infected + treatment,data=DataLGBTQ)
+barchartGC(~infected + treatment,data=DataLGBTQ, type="percent",
+main="gay")
+```
+
+```{r}
+DataU = filter(FinalData,DrugUser=="yes")
+barchartGC(~infected + treatment,data=DataU)
+barchartGC(~infected + treatment,data=DataU, type="percent",
+main="yes")
+```
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=DataF)
+rowPerc(table1)
+colPerc(table1)
+```
+```{r}
+table1 <- xtabs(~infected + treatment, data=DataG)
+rowPerc(table1)
+colPerc(table1)
+```
+```{r}
+table1 <- xtabs(~infected + treatment, data=DataLGBTQ)
+rowPerc(table1)
+colPerc(table1)
+```
+```{r}
+table1 <- xtabs(~infected + treatment, data=DataU)
+rowPerc(table1)
+colPerc(table1)
+```
+
+
 
 # Discussion and Conclusion
 
