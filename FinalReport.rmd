@@ -18,6 +18,11 @@ FinalData <- OldData %>% mutate(infected = recode(infected, aids = "covid", none
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?.  If you skimp in this section expect to be marked down in your grade. Paint a picture of the project a couple of paragraphs is expected!-->
 
+$H_0$: The null hypothesis is that among the target population, the vaccine has no effect on whether one contracts the virus or not.
+
+$H-A$: The alternative hypothesis is that among the target population, the vaccine has an effect on whether one contracts the virus or not.
+
+
 A new  preventative vaccine (covid91) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine.
 
 # Methods
@@ -28,6 +33,12 @@ A new  preventative vaccine (covid91) is under test in clinical trials. Given th
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
+```{r}
+DataF = filter(FinalData,sex=="gal")
+barchartGC(~infected + treatment,data=DataF)
+barchartGC(~infected + treatment,data=DataF, type="percent",
+main="gal")
+```
 
 
 # Discussion and Conclusion
